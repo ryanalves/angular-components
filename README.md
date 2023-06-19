@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Showcase website
 
-Access example website in [components-liart-three.vercel.app/indeterminate-checkbox](https://components-liart-three.vercel.app/indeterminate-checkbox).
+Access example website in [https://components-liart-three.vercel.app](https://components-liart-three.vercel.app).
 
 ## Development server
 

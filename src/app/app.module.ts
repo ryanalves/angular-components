@@ -5,6 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShowcaseModule } from './showcase/showcase.module';
+import { SidebarModule } from 'primeng/sidebar';
+import { ButtonModule } from 'primeng/button';
+import { ComponentListComponent } from './component-list/component-list.component';
 
 @NgModule({
   imports: [
@@ -12,8 +15,10 @@ import { ShowcaseModule } from './showcase/showcase.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     ShowcaseModule,
+    SidebarModule,
+    ButtonModule,
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, ComponentListComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

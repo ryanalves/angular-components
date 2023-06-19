@@ -1,14 +1,9 @@
 <div class="content">
-  <div class="componentes">
-    <ul>
-      <li>
-        <a routerLink="/treenode">TreeNode</a>
-      </li>
-      <li>
-        <a routerLink="/indeterminate-checkbox">Indeterminate Checkbox</a>
-      </li>
-    </ul>
-  </div>
+  <p-sidebar [(visible)]="sidebarVisible">
+    <app-component-list [showPaginaInicial]="true"></app-component-list>
+  </p-sidebar>
+  <p-button (click)="sidebarVisible = true" icon="pi pi-th-large"></p-button>
+
   <div class="componente">
     <router-outlet></router-outlet>
   </div>

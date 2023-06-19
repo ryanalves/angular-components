@@ -4,9 +4,13 @@ import { TreeNodeShowcaseComponent } from './tree-node-showcase/tree-node-showca
 import { ComponentsModule } from '../components/components.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IndeterminateCheckboxShowcaseComponent } from './indeterminate-checkbox-showcase/indeterminate-checkbox-showcase.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [TreeNodeShowcaseComponent, IndeterminateCheckboxShowcaseComponent],
-  imports: [CommonModule, ComponentsModule, ReactiveFormsModule],
+  declarations: [
+    TreeNodeShowcaseComponent,
+    IndeterminateCheckboxShowcaseComponent,
+  ],
+  imports: [CommonModule, ComponentsModule, RouterModule, ReactiveFormsModule],
 })
 export class ShowcaseModule {}

@@ -10,20 +10,14 @@
           </app-indeterminate-checkbox>
           Parent
         </div>
-
-        <div>
-          -
-          <app-indeterminate-checkbox formControlName="child1">
-          </app-indeterminate-checkbox>
-          Child 1
-        </div>
-
-        <div>
-          -
-          <app-indeterminate-checkbox formControlName="child2">
-          </app-indeterminate-checkbox>
-          Child 2
-        </div>
+        <ng-container formArrayName="children">
+          <div *ngFor="let item of children; let index = index">
+            -
+            <app-indeterminate-checkbox [formControlName]="index">
+            </app-indeterminate-checkbox>
+            Child {{ index + 1 }}
+          </div>
+        </ng-container>
       </form>
     </div>
   </div>

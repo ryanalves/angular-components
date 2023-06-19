@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { combineLatest } from 'rxjs';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
+
+const childrenNumber = 5;
 
 @Component({
   selector: 'app-indeterminate-checkbox-showcase',
@@ -9,30 +10,38 @@ import { combineLatest } from 'rxjs';
 })
 export class IndeterminateCheckboxShowcaseComponent implements OnInit {
   formGroup = new FormGroup({
-    parent: new FormControl<boolean | null>(null),
-    child1: new FormControl<boolean | null>(true),
-    child2: new FormControl<boolean | null>(false),
+    parent: new FormControl<boolean | null>(false),
+    children: new FormArray(
+      Array(childrenNumber)
+        .fill(null)
+        .map(() => new FormControl<boolean | null>(false))
+    ),
   });
 
   ngOnInit(): void {
     let parent = this.formGroup.get('parent') as FormControl;
-    let child1 = this.formGroup.get('child1') as FormControl;
-    let child2 = this.formGroup.get('child2') as FormControl;
+    let children = this.formGroup.get('children') as FormArray;
 
     parent.valueChanges.subscribe((parent) => {
-      child1.setValue(parent, {emitEvent: false});
-      child2.setValue(parent, {emitEvent: false});
-    });
-    combineLatest([child1.valueChanges, child2.valueChanges]).subscribe(
-      ([child1, child2]) => {
-        if (child1 && child2) {
-          this.formGroup.get('parent')?.setValue(true, {emitEvent: false});
-        } else if (!child1 && !child2) {
-          this.formGroup.get('parent')?.setValue(false, {emitEvent: false});
-        } else {
-          this.formGroup.get('parent')?.setValue(null, {emitEvent: false});
-        }
+      for (let i = 0; i < children.length; i++) {
+        children.get(`${i}`)?.setValue(parent, { emitEvent: false });
       }
-    );
+    });
+    
+    children.valueChanges.subscribe((children) => {
+      let value: any;
+      children.forEach((child: any) => {
+        if (value === undefined) value = child;
+        if (child !== value) {
+          value = null;
+        }
+      });
+      this.formGroup.get('parent')?.setValue(value, { emitEvent: false });
+    });
+  }
+
+  get children() {
+    let children = this.formGroup.get('children') as FormArray;
+    return Array(children.length).fill(null);
   }
 }

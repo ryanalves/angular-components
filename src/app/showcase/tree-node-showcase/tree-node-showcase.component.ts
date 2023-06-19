@@ -99,7 +99,6 @@ export class TreeNodeShowcaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.treeNodeControl.valueChanges.subscribe((values) => {
-      console.log(values);
       this.response = values;
     });
   }

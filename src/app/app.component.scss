@@ -1,0 +1,18 @@
+.content {
+    display: flex;
+    height: 100vh;
+    .componentes {
+        width: 260px;
+        padding: 10px;
+        background: rgb(231, 231, 231);
+        box-shadow: 0px 0px 5px 0 #0003;
+    }
+    .componente {
+        flex-grow: 1;
+        margin: 15px;
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        width: 300px;
+        overflow: auto;
+    }
+}

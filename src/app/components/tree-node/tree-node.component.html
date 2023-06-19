@@ -1,0 +1,41 @@
+<ng-container *ngIf="options">
+  <div class="node" [formGroup]="options.group">
+    <div class="header">
+      <div class="title">
+        <div
+          class="collapse-button"
+          [ngClass]="{ collapsed: isCollapsed }"
+          *ngIf="options.node.children?.length"
+          (click)="collapse()"
+        >
+          <span class="pi pi-fw pi-chevron-right"></span>
+        </div>
+        <div *ngIf="!options.node.children?.length">
+          <span class="pi pi-fw"></span>
+        </div>
+        <app-indeterminate-checkbox
+          type="checkbox"
+          formControlName="checked"
+          [id]="'check-' + options.node.id"
+        ></app-indeterminate-checkbox>
+        <div class="label">
+          <label [for]="'check-' + options.node.id"
+            >{{ options.node.title }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="children"
+      *ngIf="options.node.children"
+      [ngClass]="{ collapsed: isCollapsed }"
+      formArrayName="children"
+    >
+      <app-tree-node
+        *ngFor="let child of options.node?.children; let i = index"
+        [options]="getOption(child, i)"
+        [isCollapsed]="_isCollapsed"
+      ></app-tree-node>
+    </div>
+  </div>
+</ng-container>

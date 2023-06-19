@@ -1,0 +1,20 @@
+<h2>TreeNode Showcase</h2>
+
+<div class="showcase">
+  <div class="container">
+    <h3>Component</h3>
+    <div class="content">
+      <app-tree-node
+        [node]="node"
+        [formControl]="treeNodeControl"
+        [isCollapsed]="true"
+      ></app-tree-node>
+    </div>
+  </div>
+  <div class="container">
+    <h3>Values</h3>
+    <div class="content">
+      <pre>{{ response | json }}</pre>
+    </div>
+  </div>
+</div>

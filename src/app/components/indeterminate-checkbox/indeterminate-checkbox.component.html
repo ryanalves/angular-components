@@ -1,0 +1,13 @@
+<div
+  class="checkbox"
+  [ngClass]="{
+    unchecked: state == 'unchecked',
+    indeterminate: state == 'indeterminate',
+    checked: state == 'checked'
+  }"
+  (click)="onClick()"
+>
+  <i class="pi pi-times" *ngIf="state == 'unchecked'"></i>
+  <i class="pi pi-check" *ngIf="state == 'checked'"></i>
+  <i class="pi pi-minus" *ngIf="state == 'indeterminate'"></i>
+</div>

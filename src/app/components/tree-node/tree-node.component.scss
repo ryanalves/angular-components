@@ -1,0 +1,48 @@
+.node {
+    position: relative;
+    min-height: 50px;
+    overflow: hidden;
+    .header {
+        display: flex;
+        gap: 5px;
+        padding: 10px;
+        align-items: center;
+        font-size: medium;
+
+        border-radius: 5px;
+        background: rgb(247, 247, 247);
+        border: 1px solid rgb(212, 212, 212);
+        margin-bottom: 10px;
+
+        .collapse-button {
+            transition: 100ms;
+            &.collapsed {
+                transform: rotate(90deg);
+            }
+        }
+
+        .title {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            .label {
+                display: flex;
+                flex-grow: 1;
+                flex-basis: 0;
+                font-size: larger;
+                overflow: hidden;
+                label {
+                    display: inline-block;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+    .children {
+        margin-left: 25px;
+        &:not(.collapsed) {
+            display: none;
+        }
+    }
+}

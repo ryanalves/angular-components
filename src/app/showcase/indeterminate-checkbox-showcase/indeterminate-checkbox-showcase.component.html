@@ -1,0 +1,36 @@
+<h2>Indeterminate Checkbox Showcase</h2>
+
+<div class="showcase">
+  <div class="container">
+    <h3>TreeNode Showcase</h3>
+    <div class="content">
+      <form [formGroup]="formGroup">
+        <div>
+          <app-indeterminate-checkbox formControlName="parent">
+          </app-indeterminate-checkbox>
+          Parent
+        </div>
+
+        <div>
+          -
+          <app-indeterminate-checkbox formControlName="child1">
+          </app-indeterminate-checkbox>
+          Child 1
+        </div>
+
+        <div>
+          -
+          <app-indeterminate-checkbox formControlName="child2">
+          </app-indeterminate-checkbox>
+          Child 2
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <h3>Values</h3>
+    <div class="content">
+      <pre>{{ formGroup.value | json }}</pre>
+    </div>
+  </div>
+</div>
